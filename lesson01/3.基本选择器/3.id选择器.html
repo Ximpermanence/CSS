@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /**id选择器   : id必须保证全局唯一！
+        #id{}
+        不遵循就近原则，固定的
+        id选择器 > class 选择器 > 标签选择器
+
+        */
+        #b1{
+            color: cyan;
+        }
+        .style1{
+            color: aliceblue;
+        }
+        h1{
+            color: blueviolet;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1 id="b1" class="style1">标题一</h1>
+<h1 class="style1">标题二</h1>
+<h1 class="style1">标题三</h1>
+<h1>标题四</h1>
+<h1>标题五</h1>
+
+</body>
+</html>
