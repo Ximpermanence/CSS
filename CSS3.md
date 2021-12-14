@@ -47,15 +47,15 @@ style
     <meta charset="UTF-8">
     <title>Title</title>
 
-<!--    规范,<style> 可以编写css的代码,每一个声明最好使用分号结尾
-     语法：
-            选择器{
-                声明1;
-                声明2;
-                声明3;
-            }
-
--->
+    <!--    规范,<style> 可以编写css的代码,每一个声明最好使用分号结尾
+         语法：
+                选择器{
+                    声明1;
+                    声明2;
+                    声明3;
+                }
+    
+    -->
     <style>
         h1{
             color: red;
@@ -99,7 +99,7 @@ css分离的优势：
     <!--    外部样式表-->
     <link rel="stylesheet" href="./css/style.css">
 
-<!--    内部样式表-->
+    <!--    内部样式表-->
     <style>
         h1{
             color: green;
@@ -126,16 +126,16 @@ css分离的优势：
 
 ````html
     <!--    外部样式表-->
-    <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 ````
 
 - 导入式(CSS2.1)
 
 ```html
 <!--    导入式-->
-    <style>
-        @import url("css/style.css");
-    </style>
+<style>
+    @import url("css/style.css");
+</style>
 ```
 
 
@@ -301,3 +301,197 @@ body>p{
 
 ### 2.3、结构 伪类选择器
 
+伪类：条件
+
+```css
+ /*ul的第一个子元素*/
+ul li:first-child{
+    background: #57f3ff;
+}
+ /*ul的最后一个子元素*/
+ ul li:last-child{
+     background: #57f3ff;
+ }
+
+/*选中p1：定位到父元素，选择当前的第一个元素
+选择当前p元素的父级元素，选中第一个父级元素的第一个子元素，并且是当前元素才生效，按顺序
+
+*/
+p:nth-child(1){
+    background: green;
+}
+
+/**
+选中父元素下的p元素的第二个，按类型
+*/
+p:nth-of-type(2){
+    background: yellow;
+}
+```
+
+### 2.4、属性选择器 常用
+
+id+class结合
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .demo a{
+            float: left;
+            display: block;
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            background: blue;
+            text-align: center;
+            color: gray;
+            text-decoration: none;
+            margin-right: 5px;
+            font:bold 20px/50px Arial;
+        }
+
+        /*  属性名，属性名=属性值（正则）
+        = 绝对等于
+        *= 包含这个元素
+        ^= 以这个开头
+        $= 以这个结尾
+
+        */
+        /** 存在id属性的元素  a[]{}*/
+        /*a[id]{*/
+        /*    background: yellow;*/
+        /*}*/
+
+        /*id=first的元素*/
+        /*a[id=first]{*/
+        /*    background: green;*/
+        /*}*/
+
+        /*class种有link的元素,id唯一 class可以有多个，所以这里要带 ""*/
+        /*a[class*="links"]{*/
+        /*    background: #57f3ff;*/
+        /*}*/
+
+
+        /* 选中href中以http开头的元素*/
+        /*a[href^=http]{*/
+        /*    background: yellow;*/
+        /*}*/
+
+        a[href$=pdf]{
+            background: yellow;
+        }
+
+    </style>
+</head>
+<body>
+
+<p class="demo">
+    <a href="http://www.baidu.com" class="links item first" id="first">1</a>
+    <a href="http://www.chdw.online" class="links item active" target="_blank" title="test">2</a>
+    <a href="images/123.html" class="links item">3</a>
+    <a href="images/123.png" class="links item">4</a>
+    <a href="images/123.jpg" class="links item">5</a>
+    <a href="abc" class="links item">6</a>
+    <a href="/a.pdf" class="links item">7</a>
+    <a href="/abc.pdf" class="links item">8</a>
+    <a href="abc.doc" class="links item">9</a>
+    <a href="abcd.doc" class="links item last">10</a>
+
+</p>
+</body>
+</html>
+```
+
+
+
+```html
+=
+*=
+^=
+$=
+```
+
+## 3 、美化网页元素
+
+### 3.1、为什么要美化网页
+
+1、 有效的传递页面信息
+
+2、美化网页，页面漂亮，才能吸引用户
+
+3、凸显页面的主体
+
+4、提高用户的体验
+
+
+
+span标签：重点要突出的字，使用span套起来
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <style>
+    #title1{
+      font-size: 50px;
+    }
+  </style>
+
+</head>
+<body>
+
+欢迎学习 <span id="title1">java</span>
+
+
+</body>
+</html>
+```
+
+
+
+### 3.2、字体样式
+
+```html
+<!--    font-family: 字体
+        font-size:  字体大小
+        font-weight:  字体粗细
+        color:  字体颜色
+
+-->
+<style>
+    body {
+        font-family:"Arial Black" ,楷体;
+        color: brown;
+    }
+
+    h1 {
+        font-size: 50px;
+
+    }
+
+    .p1 {
+        font-weight: bold;
+    }
+</style>
+```
+
+### 3.3、文本样式
+
+1、颜色
+
+2、文本对齐的方式
+
+3、首行缩进
+
+4、行高
+
+5、装饰
