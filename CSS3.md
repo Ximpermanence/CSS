@@ -486,12 +486,236 @@ span标签：重点要突出的字，使用span套起来
 
 ### 3.3、文本样式
 
-1、颜色
+1、颜色	color rgb rgba
 
-2、文本对齐的方式
+2、**文本对齐的方式	text-align=center**
 
-3、首行缩进
+3、**首行缩进	text-indent:2em**
 
-4、行高
+4、**行高	line-height:**单行文字上下居中！ line-height = height
 
-5、装饰
+5、装饰	text-decoration
+
+6、文本图片水平对齐 vertical-align:middle
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--
+    颜色：
+        单词
+        RGB  0~F
+        RGBA A是透明度(0~1)
+
+    text-align: center;  排版，居中
+    text-indent: 2em;   段落 首行缩进
+    height: 100px;    line-height: 100px; 行高，和快的高度一致， 就可以上下居中
+
+
+-->
+
+
+    <style>
+        h1{
+            color: rgba(0,255,255,0.5);
+            text-align: center;
+        }
+        .p1{
+            text-indent: 2em;
+        }
+        .p3{
+            background: blue;
+            height: 100px;
+            line-height: 100px;
+        }
+        /*下划线*/
+        .l1{
+            text-decoration: underline;
+        }
+        /*中划线*/
+        .l2{
+            text-decoration: line-through;
+        }
+        /*上划线*/
+        .l3{
+            text-decoration: overline;
+        }
+        /*超链接去下划线*/
+        a{
+            text-decoration: none;
+        }
+        /*水平对齐~ 参照物， a,b*/
+        img,span{
+            vertical-align: middle;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<h1>故事介绍</h1>
+
+<p class="l1">123123</p>
+<p class="l2">123123</p>
+<p class="l3">123123</p>
+
+<p class="p1">
+    这个世界名为元泱境界，脉（本质为振动）是构成万物的基础。每隔333年，会有一个神秘而强大的异常生物重生，它就是魁拔！魁拔的每一次出现，都会给元泱境界带来巨大的灾难！即便是天界的神族，也在劫难逃。在天地两界各种力量的全力打击下，魁拔一次次被消灭，但又总是按333年的周期重新出现。魁拔纪元1664年，天神经过精确测算后，在魁拔苏醒前一刻对其进行毁灭性打击。但谁都没有想到，由于一个差错导致新一代魁拔成功地逃脱了致命一击。很快，天界魁拔司和地界神圣联盟均探测到了魁拔依然生还的迹象。因此，找到魁拔，彻底消灭魁拔，再一次成了各地热血勇士的终极目标。
+</p>
+
+<p>
+    在偏远的兽国窝窝乡，蛮大人和蛮吉每天为取得象征成功和光荣的妖侠纹耀而刻苦修炼，却把他们生活的村庄搅得鸡犬不宁。村民们绞尽脑汁把他们赶走。一天，消灭魁拔的征兵令突然传到窝窝乡，村长趁机怂恿蛮大人和蛮吉从军参战。然而，在这个一切都凭纹耀说话的世界，仅凭蛮大人现有的一块冒牌纹耀，不要说参军，就连住店的资格都没有。受尽歧视的蛮吉和蛮大人决定，混上那艘即将启程去消灭魁拔的巨型战舰，直接挑战魁拔，用热血换取至高的荣誉。
+</p>
+<p class="p3">All it took was one glance。Now all I ask is one chance，to try to win your heart。Just give me a chance to start。I'll
+    show you it was meant to be。To be together is our destiny。
+</p>
+<p>
+    <img src="images/a.gif" alt="">
+    <span>asdaakdhjasdjks</span>
+</p>
+
+</body>
+</html>
+```
+
+
+
+### 3.4、阴影
+
+```css
+ /*text-shadow：阴影颜色，水平偏移，垂直偏移，阴影半径*/
+        #price{
+            text-shadow: skyblue 10px -10px 2px;
+
+        }
+```
+
+### 3.5、 超链接伪类
+
+正常情况下 a和a:hover
+
+```css
+ /*默认的颜色*/
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        /*鼠标悬浮的状态（只需要记住 hover）*/
+        a:hover{
+            color: orange;
+            font-size: 50px;
+        }
+```
+
+
+
+### 3.6、列表
+
+```css
+#nav{
+    width: 300px;
+    background: gray;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: bold;
+    text-indent: 1em;
+    line-height: 35px;
+    background: red;
+}
+
+/*ul li*/
+/**
+list-style:
+none 去掉原点
+circle 空心圆
+decimal 数字
+square 正方形
+
+ */
+ul{
+    /*background: gray;*/
+}
+
+ul li{
+    height: 30px;
+    list-style: none;
+    text-indent: 1em;
+}
+
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #000;
+}
+a:hover{
+    color: orange;
+    text-decoration: underline;
+}
+```
+
+
+
+### 3.7、背景
+
+背景颜色
+
+背景图片
+
+
+
+
+
+```css
+div{
+    width: 1000px;
+    height: 700px;
+    border: 1px solid red;
+    background-image: url("images/2.gif");
+    /*默认是全部平铺的*/
+
+}
+.div1{
+    background-repeat: repeat-x;
+}
+.div2{
+    background-repeat: repeat-y;
+}
+.div3{
+    background-repeat: no-repeat;
+}
+```
+
+### 3.8、渐变
+
+```
+background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+```
+
+
+
+## 4、盒子模型
+
+### 4.1、什么是盒子模型
+
+margin:外边距
+
+padding:内边距
+
+border:边框
+
+### 4.2、 边框
+
+1、边框的粗细
+
+2、边框的样式
+
+3、边框的颜色
