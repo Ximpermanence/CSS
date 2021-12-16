@@ -719,3 +719,392 @@ border:边框
 2、边框的样式
 
 3、边框的颜色
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    /*body总有一个默认的外边距margin:0 常见操作*/
+    /*h1,ul,li,a,body{*/
+    /*    margin: 0;*/
+    /*    padding: 0;*/
+    /*    text-decoration: none;*/
+    /*}*/
+
+    /*border:粗细，样式，颜色*/
+    #box {
+        width: 300px;
+        border: 1px solid red;
+    }
+    h2{
+        font-size: 16px;
+        background: #57f3ff;
+        line-height: 30px;
+        color: white;
+
+    }
+
+    form{
+        background: #57f3ff;
+    }
+    /*这里同时选择到了外部最大的div和form下的第一个div，所以再后代选择全部选择到了所有input*/
+    div:nth-of-type(1) input{
+        border: 3px solid black;
+    }
+    div:nth-of-type(2) input{
+        border: 3px dashed purple;
+    }
+    div:nth-of-type(2) input{
+        border: 3px dashed #006fff;
+    }
+</style>
+<body>
+
+<div id="box">
+    <h2>会员登陆</h2>
+    <form action="">
+        <div>
+            <span>用户名：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>密码：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>邮箱：</span>
+            <input type="text">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+```
+
+
+
+### 4.3、内外边距
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!--外边距的妙用：居中元素
+margin: 0 auto;
+-->
+<style>
+
+    #box {
+        width: 300px;
+        border: 1px solid red;
+        margin: 0 auto;
+    }
+
+    /*
+    顺时针旋转
+    margin:0
+    margin:0 1px
+    margin:0 1px 2px 3px
+
+    */
+    h2 {
+        font-size: 16px;
+        background: #57f3ff;
+        line-height: 30px;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0;
+
+    }
+
+    form {
+        background: #57f3ff;
+    }
+
+   input{
+       border: 1px solid black;
+   }
+   div:nth-of-type(1){
+        padding: 10px 2px;
+   }
+</style>
+<body>
+
+<div id="box">
+    <h2>会员登陆</h2>
+    <form action="">
+        <div>
+            <span>用户名：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>密码：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>邮箱：</span>
+            <input type="text">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+```
+
+
+
+盒子的计算方式：元素到底多大？
+
+margin+border+padding+内容宽度
+
+
+
+### 4.4、圆角边框
+
+4个角
+
+```css
+        div{
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+            border-radius: 50px 20px;
+        }
+```
+
+
+
+
+
+### 4.5、盒子阴影
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*margin: 0 auto; 居中
+        要求： 块元素，块元素有固定的宽度
+        */
+        img{
+            border-radius: 100px ;
+            box-shadow: 10px 10px 100px yellow;
+        }
+    </style>
+</head>
+<body>
+
+<div style="width: 1000px; margin: 0 auto" >
+    <img src="images/1.jpg" alt="">
+</div>
+
+</body>
+</html>
+```
+
+
+
+
+
+## 5、浮动
+
+### 5.1、标准文档流
+
+块级元素：独占一行
+
+```
+h1~h6	p	div		列表...
+```
+
+行内元素：不独占一行
+
+```
+span	a	img		strong...
+```
+
+行内元素可以被包含在块级元素种，反之，则不可以
+
+### 5.2、display
+
+```html
+<!--
+    block 块元素
+    inline 行元素
+    inline-block 是块元素，但是可以内联（在一行）
+    none
+-->
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            display: inline;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            display: inline-block;
+        }
+    </style>
+```
+
+1、这个也是一种实现行内元素排列的方式，但是我们很多情况都是用float
+
+### 5.3、float
+
+1、左右浮动 float
+
+```css
+div {
+    margin: 10px;
+    padding: 5px;
+}
+
+#father {
+    border: 1px #000 solid;
+}
+
+.layer01 {
+    border: 1px #F00 dashed;
+    display: inline-block;
+    float: left;
+}
+
+.layer02 {
+    border: 1px #00F dashed;
+    display: inline-block;
+    float: left;
+
+}
+
+.layer03 {
+    border: 1px #060 dashed;
+    display: inline-block;
+    float: left;
+}
+
+.layer04 {
+    border: 1px #666 dashed;
+    font-size: 12px;
+    line-height: 23px;
+    display: inline-block;
+    float: left;
+    clear: both;
+}
+```
+
+
+
+### 5.4、父级边框塌陷
+
+clear
+
+```css
+/**
+clear: right; 右侧不允许有浮动元素
+clear: left; 左侧不允许有浮动元素
+clear: both; 两侧不允许有浮动元素
+clear: none;
+ */
+```
+
+解决方案：
+
+1、增加父级元素的高度
+
+```css
+#father {
+    border: 1px #000 solid;
+    height: 800px;
+}
+```
+
+
+
+2、增加一个空的div标签，清除浮动
+
+```css
+<div class="clear"></div>
+
+.clear{
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+```
+
+3、overflow
+
+```
+在父级元素中增加一个 overflow:hidden;
+```
+
+4、父类添加一个伪类：after
+
+```css
+#father:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+```
+
+小结：
+
+1. 浮动元素后面能加空div
+
+​		简单，代码中尽量避免空div
+
+2. 设置父元素的高度
+
+   简单，元素假设有了固定的高度，就会被限制
+
+3. overflow
+
+   简单，下拉的一些场景避免使用
+
+4. 在父类添加一个伪类：after(推荐)
+
+   写法稍微复杂一点，但是没有副作用，推荐使用！
+
+
+
+### 5.5、对比
+
+- display
+
+​		方向不可以控制
+
+- float
+
+  浮动起来的话会脱离标准文档流，所以要解决父级边框塌陷的问题
+
+
+
+## 6、定位
+
+### 6.1、相对定位
+
+
+
+### 6.2、绝对定位
+
+
+
+### 6.3、z-index

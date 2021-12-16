@@ -5,41 +5,44 @@
     <title>Title</title>
 </head>
 
+<!--外边距的妙用：居中元素
+margin: 0 auto;
+-->
 <style>
 
-    /*body总有一个默认的外边距margin:0 常见操作*/
-    /*h1,ul,li,a,body{*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*    text-decoration: none;*/
-    /*}*/
-
-    /*border:粗细，样式，颜色*/
     #box {
         width: 300px;
         border: 1px solid red;
+        margin: 0 auto;
     }
-    h2{
+
+    /*
+    顺时针旋转
+    margin:0
+    margin:0 1px
+    margin:0 1px 2px 3px
+
+    */
+    h2 {
         font-size: 16px;
         background: #57f3ff;
         line-height: 30px;
         color: white;
+        margin-top: 0;
+        margin-bottom: 0;
 
     }
 
-    form{
+    form {
         background: #57f3ff;
     }
-    /*这里同时选择到了外部最大的div和form下的第一个div，所以再后代选择全部选择到了所有input*/
-    div:nth-of-type(1) input{
-        border: 3px solid black;
-    }
-    div:nth-of-type(2) input{
-        border: 3px dashed purple;
-    }
-    div:nth-of-type(2) input{
-        border: 3px dashed #006fff;
-    }
+
+   input{
+       border: 1px solid black;
+   }
+   div:nth-of-type(1){
+        padding: 10px 2px;
+   }
 </style>
 <body>
 
