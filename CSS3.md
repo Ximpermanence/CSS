@@ -1101,6 +1101,82 @@ clear: none;
 
 ### 6.1、相对定位
 
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <!--    相对定位
+        相对于自己原来的位置进行偏移~
+    -->
+    <style>
+        body{
+            padding: 20px;
+        }
+        div {
+            margin: 10px;
+            padding: 5px;
+            font-size: 12px;
+            line-height: 25px;
+        }
+
+        #father {
+            border: 1px solid #666;
+            padding: 0;
+        }
+
+        #first {
+            background-color: #a13d30;
+            border: 1px dashed #b27530;
+            position: relative;/*相对定位：上下左右*/
+            top: -20px;
+            left: 20px;
+        }
+
+        #second {
+            background-color: #255099;
+            border: 1px dashed #255066;
+
+        }
+
+        #third {
+            background-color: #1c6699;
+            border: 1px dashed #1c6615;
+            position: relative;
+            bottom: -10px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="first">第一个盒子</div>
+    <div id="second">第二个盒子</div>
+    <div id="third">第三个盒子</div>
+</div>
+
+</body>
+</html>
+```
+
+相对定位：position:relative;
+
+相对于原来的位置，进行指定的偏移，相对定位的话，它仍然在标准文档流中，原来的位置会被保留
+
+```
+top: -20px;
+left: 20px;
+bottom: -10px;
+right: 20px;
+```
+
+
+
 
 
 ### 6.2、绝对定位
