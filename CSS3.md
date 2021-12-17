@@ -1166,7 +1166,7 @@ clear: none;
 
 相对定位：position:relative;
 
-相对于原来的位置，进行指定的偏移，相对定位的话，它仍然在标准文档流中，原来的位置会被保留
+**相对于原来的位置**，进行指定的偏移，相对定位的话，它仍然在标准文档流中，原来的位置会被保留
 
 ```
 top: -20px;
@@ -1181,6 +1181,188 @@ right: 20px;
 
 ### 6.2、绝对定位
 
+定位：基于xxx定位，上下左右~
+
+1、没有父级元素定位的前提下，相对于浏览器定位
+
+2、假设父级元素存在定位，通常会相对于父级元素进行偏移
+
+相对于父级或浏览器的位置，进行指定的偏移，绝对定位的话，它不在在标准文档流中，原来的位置不会被保留
 
 
-### 6.3、z-index
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin: 10px;
+            padding: 5px;
+            font-size: 12px;
+            line-height: 25px;
+        }
+        #father{
+            border: 1px solid #666;
+            padding: 0px;
+            position: relative;
+        }
+        #first{
+            background-color: #a13d30;
+            border: 1px dashed #b27530;
+
+        }
+        #second{
+            background-color: #255099;
+            border: 1px dashed #255066;
+            position: absolute;
+            right: 30px;
+
+        }
+        #third{
+            background-color: #1c6699;
+            border: 1px dashed #1c6615;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="father">
+    <div id="first">第一个盒子</div>
+    <div id="second">第二个盒子</div>
+    <div id="third">第三个盒子</div>
+</div>
+
+</body>
+</html>
+```
+
+### 6.3、固定定位 fixed
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        div:nth-of-type(1) { /*绝对定位：相对于浏览器*/
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        div:nth-of-type(2) { /*fixed*/
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div>div1</div>
+<div>div2</div>
+
+</body>
+</html>
+```
+
+
+
+### 6.4、z-index
+
+图层
+
+z-inde:默认是0，最高无限~999
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<body>
+
+<div id="content">
+    <ul>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li class="tipText">学习微服务</li>
+        <li class="tipBg"></li>
+        <li>时间：2099-01-01</li>
+        <li>地点：月球一号基地</li>
+    </ul>
+</div>
+
+</body>
+</html>
+```
+
+   opacity: 0.7; 背景透明度
+
+```css
+#content{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 25px;
+    border: 1px #000 solid;
+    width: 200px;
+}
+ul, li{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+/*父级元素相对定位*/
+#content ul{
+    position: relative;
+}
+
+.tipText,.tipBg{
+    position: absolute;
+    width: 200px;
+    top:180px;
+    height: 25px;
+}
+.tipText{
+    color: white;
+    z-index: 1;
+}
+.tipBg{
+    background: #000;
+    opacity: 0.7; /*背景透明度*/
+    filter: alpha(opacity=50);/*IE8及之前*/
+}
+```
+
+
+
+## 7、动画
+
+HTML5 Canvas动画
+
+菜鸟教程CSS3动画
+
+
+
+## 8、CSS小结
+详见CSS3.xmind
